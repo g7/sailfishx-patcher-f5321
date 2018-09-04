@@ -83,10 +83,12 @@ Requirements
 How to patch
 ------------
 
-First of all, clone this repository:
+First of all, clone this repository and its submodules:
 
 	git clone https://github.com/g7/sailfishx-patcher-f5321.git
 	cd sailfishx-patcher-f5321
+	git submodule init
+	git submodule update
 
 Then, install (if you haven't) the vagrant-vbguest plugin:
 
