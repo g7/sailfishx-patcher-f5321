@@ -1,0 +1,3 @@
+[submodule "droid-config-f5121"]
+	path = droid-config-f5121
+	url = https://github.com/mer-hybris/droid-config-f5121.git

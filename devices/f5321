@@ -1,0 +1,46 @@
+PATCH_KERNEL="yes"
+REPACK_SCRIPT="${PATCHER_DIR}/droid-config-f5121/kickstart/pack/f5121/hybris"
+PACKAGE="pattern:droid-compat-f5321"
+REPOSITORY_URI="http://repo.merproject.org/obs/home:/eugenio:/compat-f5321/sailfish_latest_armv7hl/"
+
+EXTRA_DEPENDENCIES=""
+
+check_dependencies() {
+	# Nothing yet
+	true
+}
+
+repack() {
+
+	# Repack
+
+	# Copy release informations
+	export IMG_OUT_DIR="$PWD/patcher-tmp/work"
+	cp patcher-tmp/work/tree/etc/hw-release patcher-tmp/work/hw-release
+	cp patcher-tmp/work/tree/etc/sailfish-release patcher-tmp/work/os-release
+
+	# Remove the tree (FIXME: should be elsewhere)
+	rm -rf patcher-tmp/work/tree
+
+	# Set-up the repackage process
+	echo "MER_HA_DEVICE=$ADAPTATION" >> patcher-tmp/work/hw-release
+
+	# Fix flash check regex
+	sed -i 's/F512\[12\]/F5321/g' patcher-tmp/work/flash.sh
+
+	# Strip the tool location assumptions that the pack script might
+	# make. Also use our version of the atruncate tool
+	cat > patcher-tmp/work/repack.sh <<EOF
+atruncate() {
+	python3 ${ATRUNCATE_PATH} \$1
+}
+EXTRA_NAME="patched-for-$ADAPTATION"
+EOF
+	cat ${REPACK_SCRIPT} | perl -pe "s/(?:\/usr\/)?\/?s?bin+?\///g" >> patcher-tmp/work/repack.sh
+	# WTF
+	sed -i "s/dd if=\/dev\/zero bs=1 seek=1400000000 count=1 of=fimage.img/dd if=\/dev\/zero bs=1 seek=1400000000 count=1 of=fimage.img; mkfs.ext4 -U $FIMAGE_UUID fimage.img/" patcher-tmp/work/repack.sh
+	#sed -e 's/(\/.*bin\/)//g' ${REPACK_SCRIPT} >> patcher-tmp/work/repack.sh
+
+	/bin/bash patcher-tmp/work/repack.sh
+
+}
