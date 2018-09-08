@@ -41,6 +41,56 @@ A: The only things that don't work are:
   * USB OTG (the Xperia X kernel does not supply the driver for the USB Type-C controller of the X Compact)
   * Some secondary sensors (magnetometer, gyroscope, pressure, step counter). This is temporary until I narrow down a battery drain issue I experienced with those.
 
+#### Q: What about those secondary sensors?
+
+##### Note
+
+If you patched **before** 2018-09-09 and upgraded to 2.2.1 Early Access, there can be inconsistencies on
+the secondary sensors diversions (i.e. the sensors show as diverted, but in reality they're not).
+
+To fix that, run the following commands:
+
+    devel-su
+    zypper ref
+    zypper in rpm-divert
+    rpm-divert unapply --package droid-compat-f5321-hybris-libsensorfw-qt5
+    rpm-divert apply --package droid-compat-f5321-hybris-libsensorfw-qt5
+
+##### Answer
+
+A: I have experienced spikes in CPU usage by sensorfwd during the early days of this patch. Those were hard
+to reproduce, and I haven't had the time to properly debug them (it may very well be an issue of my device).
+
+Disabling those sensors helped, and I haven't experienced the problem since.
+
+Those sensors are disabled by default, and it's done with diversions made by the
+droid-compat-f5321-hybris-libsensorfw-qt5 package (as far as I know, Sailfish OS 2.2.1
+now allows to disable sensors from a configuration file, but a diversion is just as effective).
+
+You can check if you have the diversions applied with the following command:
+
+    rpm-divert list --package droid-compat-f5321-hybris-libsensorfw-qt5
+
+You can unapply them all (and thus restoring their functionality) using
+
+    devel-su rpm-divert unapply --package droid-compat-f5321-hybris-libsensorfw-qt5
+
+You can also selectively unapply them with
+
+    devel-su rpm-divert unapply --source /usr/lib/sensord-qt5/libhybrisgyroscopeadaptor-qt5.so
+
+(this will re-enable the gryoscope sensor, change accordingly with what you want to enable)
+
+If after enabling the sensors you experience the aforementioned battery drain, you can reapply
+every diversion (and thus disabling the secondary sensors) using
+
+    devel-su rpm-divert apply --package droid-compat-f5321-hybris-libsensorfw-qt5
+
+**NOTE:** You need to restart the sensors daemon after applying/unapplying diversions. You can
+do so using
+
+    devel-su systemctl restart sensorfwd
+
 #### Q: Is it stable?
 
 A: I'm using a patched image on my daily driver since April 2018. Before I was running a custom-built
