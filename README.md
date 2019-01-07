@@ -135,10 +135,21 @@ How to patch
 
 First of all, clone this repository and its submodules:
 
+If you are on a Windows host, you need to ensure that the line endings are correct.
+Setting `core.autocrlf` to `false` globally will save some headaches:
+
+	git config --global core.autocrlf false
+
+Then you can clone the repository:
+
 	git clone https://github.com/g7/sailfishx-patcher-f5321.git
 	cd sailfishx-patcher-f5321
 	git submodule init
 	git submodule update
+
+You can reset `core.autocrlf` to `true` if you changed it before:
+
+	git config --global core.autocrlf true
 
 Then, install (if you haven't) the vagrant-vbguest plugin:
 
