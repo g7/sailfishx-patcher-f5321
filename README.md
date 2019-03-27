@@ -35,6 +35,8 @@ A: Sailfish X for Xperia X Single Sim (F5121). Currently the following images ha
 * Sailfish X F5121 2.2.0.29
 * Sailfish X F5121 2.2.1.18
 * Sailfish X F5121 3.0.0.8
+* Sailfish X F5121 3.0.1.11
+* Sailfish X F5121 3.0.2.8
 
 #### Q: What doesn't work?
 
@@ -110,7 +112,7 @@ A: They should be. The compatibility layer has been developed with OTAs in mind.
 
 So far I haven't had any issues with upgrades. My daily driver has had the following updates since April:
 
-2.1.3 (start) -> 2.1.4 -> 2.2.0 -> 2.2.1 -> 3.0.0 -> 3.0.1
+2.1.3 (start) -> 2.1.4 -> 2.2.0 -> 2.2.1 -> 3.0.0 -> 3.0.1 -> 3.0.2
 
 #### Q: Does this mean that I can run official Sailfish X on other Xperia devices?
 
