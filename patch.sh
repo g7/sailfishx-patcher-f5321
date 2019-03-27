@@ -209,7 +209,7 @@ gunzip \$tmpdir/primary.xml.gz
 
 for pkg in \$ZYPPER_PACKAGES; do
 	# This is pretty ugly
-	pkg_path=\$(grep -oP "core\/.*\/\$pkg-[0-9\.\-\_]+\.(?:(?!src).)*\.rpm" \$tmpdir/primary.xml)
+	pkg_path=\$(grep -oE "core\/.*\/\$pkg-[0-9\.\-\_]+.*\.rpm" \$tmpdir/primary.xml | grep -v "\/src\/")
 	curl -L \$JOLLA_REPO/\$pkg_path > \$tmpdir/\$pkg.rpm
 done
 
