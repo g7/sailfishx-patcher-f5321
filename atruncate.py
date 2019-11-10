@@ -19,6 +19,8 @@ file_to_truncate = sys.argv[1]
 
 BLOCK_SIZE = 2048 * 1024
 
+ANDROID_SPARSE_IMAGE_BLOCK_SIZE = 4096
+
 class ReversedFile(io.FileIO):
 
 	def __init__(self, *args, **kwargs):
@@ -74,4 +76,11 @@ with ReversedFile(file_to_truncate, "r+b") as f:
 				skipped += end
 				break
 
-	f.truncate(f.file_end - skipped)
+	# Account for block size alignment
+	when_to_truncate = f.file_end - skipped
+
+	nearest = when_to_truncate % ANDROID_SPARSE_IMAGE_BLOCK_SIZE
+	if nearest > 0:
+		when_to_truncate += (ANDROID_SPARSE_IMAGE_BLOCK_SIZE - nearest)
+
+	f.truncate(when_to_truncate)
