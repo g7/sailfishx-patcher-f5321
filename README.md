@@ -30,13 +30,16 @@ The kernel patch is done with another tool that I've developed, [yabit](https://
 
 A: Sailfish X for Xperia X Single Sim (F5121). Currently the following images have been patched successfully:
 
-* Sailfish X F5121 2.1.3.7
-* Sailfish X F5121 2.1.4.14
-* Sailfish X F5121 2.2.0.29
-* Sailfish X F5121 2.2.1.18
-* Sailfish X F5121 3.0.0.8
-* Sailfish X F5121 3.0.1.11
-* Sailfish X F5121 3.0.2.8
+* Sailfish X F5121 2.1.3.7 "Kymijoki"
+* Sailfish X F5121 2.1.4.14 "Lapuanjoki"
+* Sailfish X F5121 2.2.0.29 "Mouhijoki"
+* Sailfish X F5121 2.2.1.18 "Nurmonjoki"
+* Sailfish X F5121 3.0.0.8 "Lemmenjoki"
+* Sailfish X F5121 3.0.1.11 "Sipoonkorpi"
+* Sailfish X F5121 3.0.2.8 "Oulanka"
+* Sailfish X F5121 3.0.3.10 "Hossa"
+* Sailfish X F5121 3.1.0.11 "Seitseminen"
+* Sailfish X F5121 3.2.0.12 "Torronsuo"
 
 #### Q: What doesn't work?
 
@@ -112,7 +115,7 @@ A: They should be. The compatibility layer has been developed with OTAs in mind.
 
 So far I haven't had any issues with upgrades. My daily driver has had the following updates since April:
 
-2.1.3 (start) -> 2.1.4 -> 2.2.0 -> 2.2.1 -> 3.0.0 -> 3.0.1 -> 3.0.2
+2.1.3 (start) -> 2.1.4 -> 2.2.0 -> 2.2.1 -> 3.0.0 -> 3.0.1 -> 3.0.2 -> 3.0.3 -> 3.1.0 -> 3.2.0
 
 #### Q: Does this mean that I can run official Sailfish X on other Xperia devices?
 
