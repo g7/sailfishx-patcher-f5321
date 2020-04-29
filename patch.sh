@@ -311,6 +311,11 @@ rm -rf patcher-tmp/work/tree/tmp/*
 ROOT_UUID=$(cat patcher-tmp/work/tree/etc/fstab | grep "/ " | awk '{ print $1 }' | cut -d"=" -f2)
 FIMAGE_UUID=$(cat patcher-tmp/work/tree/etc/fstab | grep "/fimage " | awk '{ print $1 }' | cut -d"=" -f2)
 
+if [ -z "$FIMAGE_UUID" ]; then
+  #fimage uuid was removed from fstab in rokua, so just an arbitrary one
+  FIMAGE_UUID="f6fddb2c-8a37-11ea-96ca-27ee2e012f1d"
+fi
+
 # Re-create the root.img
 info "Creating an empty root image"
 SIZE=$(( ${ROOT_SIZE} + 20 )) # 20MB contingency
