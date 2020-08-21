@@ -1,6 +1,20 @@
 sailfishx-patcher-f5321
 =======================
 
+Important note
+--------------
+
+I'm moving away from Sailfish OS, and this means that I won't be able to support this project anymore.  
+This compatibility layer has been designed not to be on the way of official OTA upgrades. As such,
+I do expect patched devices to run for as long as Jolla supports the base device (Xperia X).
+
+I will continue to accept Pull Requests.
+
+Thanks to everyone who contributed with testing and donations. It has been a blast!
+
+Introduction
+------------
+
 This repository contains a tool that permits to apply the [Xperia X Compact compatibility layer](https://github.com/g7/droid-compat-f5321)
 on top of official Sailfish X images.
 
