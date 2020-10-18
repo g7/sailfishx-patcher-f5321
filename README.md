@@ -141,10 +141,6 @@ things can't work.
 
 But I expect that a similar approach can be taken to patch the Sailfish X images for the XA2 for the XA2 Plus and Ultra.
 
-#### Q: Hey, I like what you've done! Can I buy you a beer?
-
-A: Sure! Head up [here](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=HVAFQSLM94DLW&lc=en_XC). Thanks!
-
 Requirements
 ------------
 
