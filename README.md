@@ -27,6 +27,25 @@ The following may also work on Windows and macOS machines, but it hasn't been te
 Frequently Asked Questions
 --------------------------
 
+#### Q: (NEW IN 3.4 "Pallas-Yllästunturi"): Can I disable /home encryption at boot?
+
+A: Since Sailfish OS 3.4 "Pallas-Yllästunturi", /home partition encryption is enabled by default.
+
+While this is a good thing, the current, PIN-only implementation makes this pointless unless
+an abnormally long PIN has been set.
+
+This is further exacerbated by the fact that on Xperias at least, an unlocked bootloader
+is required and so obtaining the LUKS header (which can be cracked in minutes with short
+PIN codes) is easy for a potential adversary.
+
+Thus, disabling encryption by default can be desirable. You can run the following command
+to create the `config.sh` file that will be sourced by the patcher script, specifying that
+encryption should be disabled:
+
+    echo 'DISABLE_HOME_ENCRYPTION_AT_BOOT="yes"' > config.sh
+
+Thanks to @teleshoes for their contribution.
+
 #### Q: How does this thing work?
 
 A: [droid-compat-f5321](https://github.com/g7/droid-compat-f5321) is a compatibility layer that I've developed
