@@ -22,6 +22,7 @@ ATRUNCATE_PATH="${PATCHER_DIR}/atruncate.py"
 #REPACK_SCRIPT="${PATCHER_DIR}/droid-config-f5121/kickstart/pack/f5121/hybris"
 #PACKAGE="pattern:droid-compat-f5321"
 #REPOSITORY_URI="http://repo.merproject.org/obs/home:/eugenio:/compat-f5321/sailfish_latest_armv7hl/"
+DISABLE_HOME_ENCRYPTION_AT_BOOT="no"
 
 info() {
 	echo "I: $@"
@@ -253,6 +254,12 @@ if [ "$PATCH_KERNEL" == "yes" ]; then
 	rpm-divert unapply --package droid-compat-tmp
 
 	rpm-divert remove droid-compat-tmp /usr/sbin/flash-partition
+fi
+
+
+### encryption is mandatory starting in 3.4
+if [ "$DISABLE_HOME_ENCRYPTION_AT_BOOT" == "yes" ]; then
+  rm /var/lib/sailfish-device-encryption/encrypt-home
 fi
 
 # Terminate what we started
