@@ -130,17 +130,11 @@ Alien Dalvik and the other 3rd-party content work fine.
 
 A: They should be. The compatibility layer has been developed with OTAs in mind.
 
-So far I haven't had any issues with upgrades. My daily driver has had the following updates since April:
-
-2.1.3 (start) -> 2.1.4 -> 2.2.0 -> 2.2.1 -> 3.0.0 -> 3.0.1 -> 3.0.2 -> 3.0.3 -> 3.1.0 -> 3.2.0 -> 3.2.1 -> 3.3.0
-
 #### Q: Does this mean that I can run official Sailfish X on other Xperia devices?
 
 A: No. The Xperia X and the Xperia X Compact are so similar that an approach similar to mine
 can work. Other Xperias (X Performance, XZ*) do not share anything about the hardware so unfortunately
 things can't work.
-
-But I expect that a similar approach can be taken to patch the Sailfish X images for the XA2 for the XA2 Plus and Ultra.
 
 Requirements
 ------------
