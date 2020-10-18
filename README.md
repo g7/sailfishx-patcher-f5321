@@ -50,12 +50,13 @@ A: Sailfish X for Xperia X Single Sim (F5121). Currently the following images ha
 * Sailfish X F5121 2.2.1.18 "Nurmonjoki"
 * Sailfish X F5121 3.0.0.8 "Lemmenjoki"
 * Sailfish X F5121 3.0.1.11 "Sipoonkorpi"
-* Sailfish X F5121 3.0.2.8 "Oulanka"
+* Sailfish X F5121 3.0.2.8 "Oulanka" (thanks to @f03el for their contribution)
 * Sailfish X F5121 3.0.3.10 "Hossa"
 * Sailfish X F5121 3.1.0.11 "Seitseminen"
 * Sailfish X F5121 3.2.0.12 "Torronsuo"
 * Sailfish X F5121 3.2.1.20 "Nuuksio"
-* Sailfish X F5121 3.3.0.16 "Rokua"
+* Sailfish X F5121 3.3.0.16 "Rokua" (thanks to @teleshoes for their contribution)
+* Sailfish X F5121 3.4.0.24 "Pallas-Yllästunturi"
 
 #### Q: What doesn't work?
 
