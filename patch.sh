@@ -100,6 +100,11 @@ done
 
 . ${PATCHER_DIR}/devices/${ADAPTATION}
 
+# Load an eventual configuration file
+if [ -e "${PATCHER_DIR}/config.sh" ]; then
+	. ${PATCHER_DIR}/config.sh
+fi
+
 if [ "$ARCH" != "armv7l" ] || [ "$ARCH" != "aarch64" ]; then
 	WITH_QEMU_STATIC="yes"
 	check_application qemu-arm-static
