@@ -23,6 +23,7 @@ ATRUNCATE_PATH="${PATCHER_DIR}/atruncate.py"
 #PACKAGE="pattern:droid-compat-f5321"
 #REPOSITORY_URI="http://repo.merproject.org/obs/home:/eugenio:/compat-f5321/sailfish_latest_armv7hl/"
 DISABLE_HOME_ENCRYPTION_AT_BOOT="no"
+FORCE_DEFAULTUSER_NEMO="no"
 
 info() {
 	echo "I: $@"
@@ -265,6 +266,10 @@ fi
 ### encryption is mandatory starting in 3.4
 if [ "$DISABLE_HOME_ENCRYPTION_AT_BOOT" == "yes" ]; then
   rm /var/lib/sailfish-device-encryption/encrypt-home
+fi
+
+if [ "$FORCE_DEFAULTUSER_NEMO" == "yes" ]; then
+  sed -i s/defaultuser/nemo/g /usr/lib/startup/start-autologin
 fi
 
 # Terminate what we started
