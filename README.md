@@ -42,7 +42,19 @@ Thus, disabling encryption by default can be desirable. You can run the followin
 to create the `config.sh` file that will be sourced by the patcher script, specifying that
 encryption should be disabled:
 
-    echo 'DISABLE_HOME_ENCRYPTION_AT_BOOT="yes"' > config.sh
+    echo 'DISABLE_HOME_ENCRYPTION_AT_BOOT="yes"' >> config.sh
+
+Thanks to @teleshoes for their contribution.
+
+#### Q: (NEW IN 3.4 "Pallas-Yllästunturi"): Can I rename "defaultuser" back to "nemo"?
+
+A: Sailfish OS 3.4 changed the default username to "defaultuser". This could be an issue
+as many scripts (and applications) might still refer to the old, default user ("nemo").
+
+You can run the following command to create the `config.sh` file that will be sourced by the patcher
+script, specifying that the user should be renamed:
+
+    echo 'FORCE_DEFAULTUSER_NEMO="yes"' >> config.sh
 
 Thanks to @teleshoes for their contribution.
 
