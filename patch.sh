@@ -218,6 +218,15 @@ for pkg in \$ZYPPER_PACKAGES; do
 	# This is pretty ugly
 	pkg_path=\$(grep -oE "(core|oss)\/.*\/\$pkg-[0-9\.\-\_]+.*\.rpm" \$tmpdir/primary.xml | grep -v "\/src\/")
 	curl -L \$JOLLA_REPO/\$pkg_path > \$tmpdir/\$pkg.rpm
+
+  ### HACK ###
+  if grep '<head><title>404 Not Found</title></head>' \$tmpdir/\$pkg.rpm; then
+    hack_pkg_path=\$(echo \$pkg_path | sed s/1\\.2\\.4\\.jolla/1.2.6.jolla/)
+    echo "HACK PKG PATH: \$pkg_path => \$hack_pkg_path"
+    curl -L \$JOLLA_REPO/\$hack_pkg_path > \$tmpdir/\$pkg.rpm
+  fi
+  ### HACK ###
+
 done
 
 # This is pretty ugly
