@@ -157,6 +157,10 @@ mkdir -p patcher-tmp/work/fimage
 mkdir -p patcher-tmp/work/tree
 mkdir -p patcher-result
 
+### add f5321 to VALID_PRODUCTS for flash.sh
+sed -i 's/"F5121"/"F5121"\n"F5321"/' flash-config.sh
+###
+
 FIMAGE_MPOINT="$(mktemp -d -p ${BASE_TEMP_DIR})"
 ROOT_MPOINT="$(mktemp -d -p ${BASE_TEMP_DIR})"
 
