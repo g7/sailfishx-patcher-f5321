@@ -211,7 +211,12 @@ fi
 tmpdir=\$(mktemp -d)
 
 # Try to obtain the primary.xml.gz file
-curl -L \$JOLLA_REPO/repodata/primary.xml.gz > \$tmpdir/primary.xml.gz
+potential_primary=\$(curl -L \$JOLLA_REPO/repodata/repomd.xml | grep -oE "repodata/[0-9A-Za-z]+\-primary.xml.gz")
+if [ -n \$potential_primary ]; then
+	curl -L \$JOLLA_REPO/\$potential_primary > \$tmpdir/primary.xml.gz
+else
+	curl -L \$JOLLA_REPO/repodata/primary.xml.gz > \$tmpdir/primary.xml.gz
+fi
 gunzip \$tmpdir/primary.xml.gz
 
 for pkg in \$ZYPPER_PACKAGES; do
