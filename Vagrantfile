@@ -43,7 +43,7 @@ end
 Vagrant.configure("2") do |config|
 	config.vm.define :sailfish_image_patcher
 
-	config.vm.box = "debian/stretch64"
+	config.vm.box = "debian/bookworm64"
 
 	# Things do currently work as of SailfishOS 2.2.0 and the default
 	# 10GB vmdk disk of the stretch64 box.
