@@ -95,8 +95,7 @@ Vagrant.configure("2") do |config|
 			rsync \
 			qemu-user-static \
 			binfmt-support \
-			simg2img \
-			img2simg \
+			android-sdk-libsparse-utils \
 			lvm2 \
 			pigz \
 			python3 \
