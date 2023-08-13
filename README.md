@@ -89,6 +89,7 @@ A: Sailfish X for Xperia X Single Sim (F5121). Currently the following images ha
 * Sailfish X F5121 3.3.0.16 "Rokua" (thanks to @teleshoes for their contribution)
 * Sailfish X F5121 3.4.0.24 "Pallas-Yllästunturi"
 * Sailfish X F5121 4.1.0.24 "Kvarken"
+* Sailfish X F5121 4.5.0.21 "Struven ketju"
 
 #### Q: What doesn't work?
 
